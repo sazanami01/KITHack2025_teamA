@@ -1,0 +1,133 @@
+.timetable-container {
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+.timetable {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+.timetable th {
+  padding: 8px;
+  background-color: #173a66d3;
+  color: white;
+  font-weight: bold;
+}
+
+.timetable td {
+  border: 1px solid #1b1818;
+  padding: 30px;
+}
+
+.cell {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* 空セル */
+.cell.empty {
+  background-color: white;
+}
+.cell.empty:hover {
+  background-color: #f0f0f0;
+}
+
+/* オンライン授業 */
+.cell.online {
+  background-color: #a7f3d0;
+}
+.cell.online:hover {
+  background-color: #6ee7b7;
+}
+
+/* 対面授業 */
+.cell.offline {
+  background-color: #bfdbfe;
+}
+.cell.offline:hover {
+  background-color: #93c5fd;
+}
+
+/* モーダル背景 */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+
+/* モーダル本体 */
+.modal {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 300px;
+  max-width: 90%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal input[type="text"] {
+  width: 95%;
+  margin-bottom: 0.5rem;
+  padding: 0.3rem;
+}
+
+.modal label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.modal-buttons button {
+  padding: 0.3rem 0.6rem;
+  border: 1px solid #aaa;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+.modal-buttons button:hover {
+  opacity: 0.8;
+}
+
+.ondemandtable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.ondemandtable thead th {
+  background-color: #173a66d3;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.ondemandtable td {
+  border: 1px solid #a99a9a;
+  padding: 70px;
+}
+
+.ondemandcell.empty {
+  background-color: white;
+}
+
+.ondemandcell.empty:hover {
+  background-color: #f0f0f0;
+}
+
+.ondemandcell.full {
+  background-color: rgba(237, 237, 28, 0.717);
+}
+
+.ondemandcell.full:hover {
+  background-color: rgba(255, 255, 0, 0.941);
+}
