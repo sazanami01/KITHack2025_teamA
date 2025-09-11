@@ -1,0 +1,16 @@
+/* app/syllabus/layout.module.css */
+.tab {
+  font-weight: bold;  /* 太字 */
+  font-size: 1.1rem; /* フォントサイズ */
+  padding: 0.5rem 1.5rem; /* 内側の余白 */
+  color: #933838; /* 文字色 */
+  background: #04ffee; /* 背景色 */
+  border-radius: 8px 8px 0 0; /* 角を丸くする */
+  margin-right: 8px; /* タブ間の余白 */
+}
+
+.tab[data-active="true"] { /* アクティブなタブのスタイル */
+  background: #333; /* 背景色 */
+  color: #1976d2; /* 文字色 */
+  border-bottom: 2px solid #1976d2; /* 下線 */
+}
