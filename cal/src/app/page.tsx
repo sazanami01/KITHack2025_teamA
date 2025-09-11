@@ -83,36 +83,33 @@ export default function Timetable() {
     setIsModalOpen(false);
   };
 
-
-  /* オンデマンド授業
-  const [ondemandtable, setOndemandTable] = useState<string[]>(
-    ["", "", "", "", ""]
-  );*/
-
   // オンデマンドの個数
   const numbers = ["1", "2", "3", "4", "5"];
 
+  // オンデマンド授業が持つ情報
   interface OndemandClassCell {
     name: string;
     teacher: string;
   }
 
-  // 時間割の更新
+  // 時間割の更新（オンデマンド）
   const [ondemandtimetable, setOndemandTimetable] = useState<(OndemandClassCell | null)[]>(
     Array(numbers.length).fill(null)
   );
 
-  // モーダル（授業を追加しようとすると出てくるやつ）の状態を管理
+  // モーダル（授業を追加しようとすると出てくるやつ）の状態を管理（オンデマンド）
   const [isOndemandModalOpen, setIsOndemandModalOpen] = useState(false);
 
-  // クリックされたマスの位置を保存
+  // クリックされたマスの位置を保存（オンデマンド）
   const [currentOndemandCell, setCurrentOndemandCell] = useState<[number] | null>(null);
 
+  // オンデマンドを追加するときに入れることができる情報
   const [formOndemandData, setFormOndemandData] = useState({
     name: "",
     teacher: "",
   });
 
+  // オンデマンドを追加するときに出てくるモーダル
   const openOndemandModal = (col: number) => {
   setCurrentOndemandCell([col]);
   const cell = ondemandtimetable[col];
@@ -126,6 +123,7 @@ export default function Timetable() {
   setIsOndemandModalOpen(true);
 };
 
+// 授業を保存（オンデマンド）
 const saveOndemandClass = () => {
     if (!currentOndemandCell) return;
     const [col] = currentOndemandCell;
@@ -137,7 +135,7 @@ const saveOndemandClass = () => {
     setFormOndemandData({ name: "", teacher: "" });
   };
 
-  // 授業の削除
+  // 授業の削除（オンデマンド）
   const deleteOndemandClass = () => {
     if (!currentOndemandCell) return;
     const [col] = currentOndemandCell;
@@ -148,26 +146,25 @@ const saveOndemandClass = () => {
   };
 
   
-
-  // 表示部分
+  // 画面の表示部分
   return (
     <div className='timetable-container'>
       <h1>時間割</h1>
+
       <table className='timetable'>
+
         <thead>
           <tr>
             <th></th>
-
-            {/*曜日のヘッダーの表示*/}
+            {/* 曜日のヘッダーの表示 */}
             {days.map((day) => (
               <th key={day}>{day}</th>
             ))}
-
           </tr>
         </thead>
-        <tbody>
 
-          {/*<td>１つがマス１つ分、２重ループで全てのマスを表示している*/}
+        <tbody>
+          {/* 時間割のマス目の表示 */}
           {timetable.map((row, rowIndex) => (
             <tr key={rowIndex}>
               <td>{periods[rowIndex]}</td>
@@ -177,7 +174,7 @@ const saveOndemandClass = () => {
                   onClick={() => openModal(rowIndex, colIndex)}
                   className={`cell ${cell ? (cell.isOnline ? "online" : "offline") : "empty"
                     }`}
-                >{/*もし、そのマスに何かしらの情報があれば表示します*/}
+                >{/* もし、そのマスに何かしらの情報があれば表示します */}
                   {cell ? (
                     <div>
                       <div className="font-bold">{cell.name}</div>
@@ -191,27 +188,34 @@ const saveOndemandClass = () => {
               ))}
             </tr>
           ))}
-
         </tbody>
+
       </table>
 
+
+      {/* モーダルの表示 */}
       {isModalOpen && (
         <div className="modal-backdrop">
           <div className="modal">
             <h2>{timetable[currentCell![0]][currentCell![1]] ? "授業を編集" : "授業を追加"}</h2>
 
+            {/* 授業名を入れるテキストボックス */}
             <input
               type="text"
               placeholder="授業名"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             />
+
+            {/* 教室名を入れるテキストボックス */}
             <input
               type="text"
               placeholder="教室"
               value={formData.room}
               onChange={(e) => setFormData({ ...formData, room: e.target.value })}
             />
+
+            {/* オンラインかどうかを選択するチェックボックス */}
             <label>
               <input
                 type="checkbox"
@@ -221,6 +225,7 @@ const saveOndemandClass = () => {
               オンライン授業
             </label>
 
+            {/* ボタン類の配置 */}
             <div className="modal-buttons">
               <button onClick={() => setIsModalOpen(false)}>キャンセル</button>
               <button onClick={saveClass}>保存</button>
@@ -228,6 +233,7 @@ const saveOndemandClass = () => {
                 <button onClick={deleteClass}>削除</button>
               )}
             </div>
+
           </div>
         </div>
       )}
@@ -235,22 +241,26 @@ const saveOndemandClass = () => {
 
       <h1>オンデマンド</h1>
         <table className='ondemandtable'>
+
           <thead>
             <tr>
+              {/* ヘッダーの番号を表示 */}
               {numbers.map((number) => (
                 <th key={number}>{number}</th>
               ))}
             </tr>
           </thead>
+
           <tbody>
             <tr>
+              {/* オンデマンドの授業を追加するマスを表示 */}
               {ondemandtimetable.map((cell, cellIndex) => (
                 <td
                   key={cellIndex}
                   onClick={() => openOndemandModal(cellIndex)}
                   className={`ondemandcell ${cell ? "full" : "empty"
                     }`}
-                >
+                >{/* もし、そのマスに何かしらの情報があれば表示します */}
                   {cell ? (
                     <div>
                       <div className="font-bold">{cell.name}</div>
@@ -263,25 +273,33 @@ const saveOndemandClass = () => {
               ))}
             </tr>
           </tbody>
+
         </table>
 
+        
+        {/* オンデマンド授業のモーダル表示 */}
         {isOndemandModalOpen && (
         <div className="modal-backdrop">
           <div className="modal">
             <h2>{ondemandtimetable[currentOndemandCell![0]] ? "授業を編集" : "授業を追加"}</h2>
 
+            {/* 授業名を追加するテキストボックス */}
             <input
               type="text"
               placeholder="授業名"
               value={formOndemandData.name}
               onChange={(e) => setFormOndemandData({ ...formOndemandData, name: e.target.value })}
             />
+
+            {/* 先生の名前を入れるテキストボックス */}
             <input
               type="text"
               placeholder="先生"
               value={formOndemandData.teacher}
               onChange={(e) => setFormOndemandData({ ...formOndemandData, teacher: e.target.value })}
             />
+
+            {/* ボタン類の配置 */}
             <div className="modal-buttons">
               <button onClick={() => setIsOndemandModalOpen(false)}>キャンセル</button>
               <button onClick={saveOndemandClass}>保存</button>
@@ -289,10 +307,11 @@ const saveOndemandClass = () => {
                 <button onClick={deleteOndemandClass}>削除</button>
               )}
             </div>
+
           </div>
         </div>
       )}
-
-      </div>
+      
+    </div>
   );
 }
