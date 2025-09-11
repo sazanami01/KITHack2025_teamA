@@ -21,6 +21,8 @@ import { Loader } from './Loader';
 import { Center } from '@mantine/core';
 import { useSearchParams } from "next/navigation";
 
+
+
   // シラバスの表示についての設定
 
   interface PageProps {
@@ -37,7 +39,6 @@ const searchParams = useSearchParams(); // URLのクエリパラメータを取�
 
   return (
      /* ここから下が検索結果の表示部分 */
-     <Layout>
       <Box my="md">
         {query.length >= 1
           ? <Suspense key={query} fallback={ // queryが変わるたびにSuspenseをリセットする
@@ -57,6 +58,5 @@ const searchParams = useSearchParams(); // URLのクエリパラメータを取�
           </div>
         }
       </Box>
-    </Layout>
     );
   };

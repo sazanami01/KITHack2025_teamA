@@ -154,7 +154,7 @@ const saveOndemandClass = () => {
 
     <Layout>
     <div className='timetable-container'>
-      <h1>時間割</h1>
+      <h1 className="font-bold text-2xl text-gray-700">時間割表</h1>
 
       <table className={styles.timetable}>
 
@@ -176,9 +176,8 @@ const saveOndemandClass = () => {
               {row.map((cell, colIndex) => (
                 <td
                   key={colIndex}
+                  className={`${styles.cell} ${cell ? (cell.isOnline ? styles.online : styles.offline) : styles.empty}`}
                   onClick={() => openModal(rowIndex, colIndex)}
-                  className={`cell ${cell ? (cell.isOnline ? "online" : "offline") : "empty"
-                    }`}
                 >{/* もし、そのマスに何かしらの情報があれば表示します */}
                   {cell ? (
                     <div>
@@ -231,7 +230,7 @@ const saveOndemandClass = () => {
             </label>
 
             {/* ボタン類の配置 */}
-            <div className="modal-buttons">
+            <div className={styles.modal_buttons}>
               <button onClick={() => setIsModalOpen(false)}>キャンセル</button>
               <button onClick={saveClass}>保存</button>
               {timetable[currentCell![0]][currentCell![1]] && (
@@ -244,7 +243,7 @@ const saveOndemandClass = () => {
       )}
 
 
-      <h1>オンデマンド</h1>
+      <h1 className="font-bold text-2xl text-gray-700">オンデマンド授業</h1>
         <table className={styles.ondemandtable}>
 
           <thead>
@@ -263,7 +262,7 @@ const saveOndemandClass = () => {
                 <td
                   key={cellIndex}
                   onClick={() => openOndemandModal(cellIndex)}
-                  className={`ondemandcell ${cell ? "full" : "empty"
+                  className={`${styles.ondemandcell} ${cell ? styles.full : styles.empty
                     }`}
                 >{/* もし、そのマスに何かしらの情報があれば表示します */}
                   {cell ? (

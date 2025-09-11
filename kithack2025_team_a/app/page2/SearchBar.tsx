@@ -7,6 +7,7 @@ import { IoMdSearch } from 'react-icons/io';
 import styles from "./page.module.css"
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { MantineProvider } from '@mantine/core';
 
 // onSearchの型を定義
 interface SearchBarProps {
@@ -30,8 +31,9 @@ const SearchBar: React.FC<SearchBarProps> = ({ defaultValue = "" }) => { // defa
     return (
         /* フォームの送信イベントをhandleSearchで処理 */
         /* Flexは横幅いっぱいに広げるために置いている(あと中央詰めにするため) */ 
-        <form onSubmit={handleSearch}>             
-            <Flex justify="center" align="center" mt="xl" mb="xl" gap="md" w="clamp(250px, 80%, 600px)">
+        <form onSubmit={handleSearch}> 
+            <MantineProvider>
+            <Flex justify="center" align="center" mt="xl" mb="xl" gap="md" w="clamp(250px, 80%, 600px)">                
                 <TextInput
                     placeholder="授業名を入力してね!"
                     value={searchInput}
@@ -43,6 +45,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ defaultValue = "" }) => { // defa
                         <IoMdSearch />
                     </ActionIcon>
             </Flex >
+            </MantineProvider>
         </form>
     );
 };

@@ -101,14 +101,14 @@
   gap: 0.5rem;
 }
 /* モーダルボタンの見た目の設定 */
-.modal-buttons button {
+.modal_buttons button {
   padding: 0.3rem 0.6rem;
   border: 1px solid #aaa;
   border-radius: 0.3rem;
   cursor: pointer;
 }
 /* モーダルボタンの上にマウスを置いた時の設定 */
-.modal-buttons button:hover {
+.modal_buttons button:hover {
   opacity: 0.8;
 }
 

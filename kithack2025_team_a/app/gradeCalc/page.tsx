@@ -7,6 +7,11 @@ import { useState } from "react";
 
 import { Layout } from "../styles/Layout";
 
+import SearchBar from "../page2/SearchBar";
+import { Flex, TextInput, ActionIcon } from '@mantine/core';
+import { MantineProvider } from '@mantine/core';
+
+
 //　ArtPageコンポーネントが受け取るprops（引数）の型を定義するはず(意味なしだから削除)
 // つまり、searchParamsの中にqという名前のパラメータが入っている可能性があると思うから置いた
 /*interface ArtPageProps {
@@ -119,6 +124,9 @@ export default function ArtPage() {
   return (
     <Layout>
     <div style={{ padding: "2rem" }}>
+      
+        <SearchBar />
+
       <h2>後期授業(シラバス簡易版(再履修入力してません))</h2>
       {/* シラバスの表を作成 */}
       <table style={{ width: "100%", borderCollapse: "collapse" }}>
@@ -144,7 +152,6 @@ export default function ArtPage() {
        {/*何も授業が当てはまっていない時に表示できなくする*/}
       {results.length === 0 && <div>該当する科目がありません。</div>}
     </div>
-    
     </Layout>
   );
 }
