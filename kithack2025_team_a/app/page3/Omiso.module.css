@@ -1,0 +1,152 @@
+
+/* 時間割を表示するための空間の設定 */
+.timetable-container {
+  padding: 5rem;
+  font-family: Arial, sans-serif;
+}
+/* 時間割の見た目の設定 */
+.timetable {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+
+/* 時間割のヘッダー部分の設定 */
+.timetable th {
+  padding: 8px;
+  background-color: #173a66d3;
+  color: white;
+  font-weight: bold;
+}
+/* 時間割のヘッダーの中身の設定 */
+.timetable td {
+  border: 1px solid #1b1818;
+  padding: 30px;
+}
+
+
+/* 時間割のマス目の設定 */
+.cell {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* 空セルの時の設定 */
+.cell.empty {
+  background-color: white;
+}
+/* 空セルに、マウスを置いたときの設定 */
+.cell.empty:hover {
+  background-color: #f0f0f0;
+}
+
+/* オンライン授業の時の設定 */
+.cell.online {
+  background-color: #a7f3d0;
+}
+/* オンライン授業のマス目の上にマウスを置いた時の設定 */
+.cell.online:hover {
+  background-color: #6ee7b7;
+}
+
+/* 対面授業の時の設定 */
+.cell.offline {
+  background-color: #bfdbfe;
+}
+/* 対面授業の時マス目の上にマウスを置いた時の設定 */
+.cell.offline:hover {
+  background-color: #93c5fd;
+}
+
+
+/* モーダルの背景の設定 */
+.modal_backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+
+/* モーダル本体の設定 */
+.modal {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 300px;
+  max-width: 90%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* モーダルのテキストボックスの設定 */
+.modal input[type="text"] {
+  width: 95%;
+  margin-bottom: 0.5rem;
+  padding: 0.3rem;
+}
+
+/* モーダルのチェックボックスの設定 */
+.modal label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* モーダルのボタンの配置の設定 */
+.modal_buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+/* モーダルボタンの見た目の設定 */
+.modal-buttons button {
+  padding: 0.3rem 0.6rem;
+  border: 1px solid #aaa;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+/* モーダルボタンの上にマウスを置いた時の設定 */
+.modal-buttons button:hover {
+  opacity: 0.8;
+}
+
+
+/* オンデマンドの時間割の設定 */
+.ondemandtable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+/* オンデマンド時間割のヘッダーの設定 */
+.ondemandtable thead th {
+  background-color: #173a66d3;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+}
+/* オンデマンド時間割のヘッダーの中身の設定 */
+.ondemandtable td {
+  border: 1px solid #a99a9a;
+  padding: 70px;
+}
+
+/* オンデマンド時間割のマス目が空の時の設定 */
+.ondemandcell.empty {
+  background-color: white;
+}
+/* 空マスの上にマウスが置かれた時の設定 */
+.ondemandcell.empty:hover {
+  background-color: #f0f0f0;
+}
+
+/* オンデマンド授業が追加された時の設定 */
+.ondemandcell.full {
+  background-color: rgba(237, 237, 28, 0.717);
+}
+/* オンデマンド授業が追加されているマスの上にマウスを置いた時の設定 */
+.ondemandcell.full:hover {
+  background-color: rgba(255, 255, 0, 0.941);
+}

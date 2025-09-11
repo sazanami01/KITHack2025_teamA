@@ -4,7 +4,6 @@ import Link from "next/link";
 import styles from "./Layout.module.scss";
 import { HomeIcon } from "./HomeIcon";
 import { usePathname } from "next/navigation";
-import { JSX } from "@fullcalendar/core/preact.js";
 
 
 type Props = {
@@ -26,17 +25,17 @@ const navigations: Navigation[] = [
   },
   {
     pageName: "ページ2",
-    path: "/page2",
+    path: "/page1",
     icon: <HomeIcon className={styles.icon}/>
   },
   {
     pageName: "ページ3",
-    path: "/page3",
+    path: "/page2",
     icon: <HomeIcon className={styles.icon}/>
   },
   {
     pageName: "ページ4",
-    path: "/page4",
+    path: "/page3",
     icon: <HomeIcon className={styles.icon}/>
   },
 
