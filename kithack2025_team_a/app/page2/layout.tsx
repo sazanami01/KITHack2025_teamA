@@ -3,7 +3,7 @@
 
 import SearchBar from "./SearchBar";
 //import { Space, Tabs, MantineProvider } from "@mantine/core"
-import { MantineProvider } from "@mantine/core";
+import { MantineProvider, Title } from "@mantine/core";
 import Link from "next/link"
 //import { useSelectedLayoutSegment } from "next/navigation"
 import { ReactNode } from "react"
@@ -30,6 +30,11 @@ const SaearchLayout = ({ children }: PageProps) => {
                 alignItems: 'center',     // 横方向中央揃え
                 paddingTop: '2rem'        // 上部に余白
             }}>
+
+            {/* 一番上に表示するタイトル */}
+                <Title order={1} size="h1" mb="sm" className={styles.pageTitle}>
+                    近大シラバス
+                </Title>
             <SearchBar />
             
             </div>

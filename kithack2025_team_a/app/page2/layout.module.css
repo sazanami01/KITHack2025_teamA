@@ -9,6 +9,12 @@
   margin-right: 8px; /* タブ間の余白 */
 }
 
+.pageTitle {
+  color: #04ffee;
+  size: h1;
+  font-size: 3rem;
+}
+
 .tab[data-active="true"] { /* アクティブなタブのスタイル */
   background: #333; /* 背景色 */
   color: #1976d2; /* 文字色 */

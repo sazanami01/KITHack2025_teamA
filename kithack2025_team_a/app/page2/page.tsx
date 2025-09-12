@@ -9,7 +9,7 @@ import {
 } from 'react'
 
 
-import Box from '@mui/material/Box';
+//import Box from '@mui/material/Box';
 
 import { Layout } from "../styles/Layout";
 
@@ -17,10 +17,11 @@ import { Layout } from "../styles/Layout";
 
 import { Suspense } from 'react';
 import { SearchResultList } from './SearchResultList';
-import { Loader } from './Loader';
-import { Center } from '@mantine/core';
+//import { Loader } from './Loader';
+import { Box, Center, Loader, Text, Title, Flex } from '@mantine/core'
 import { useSearchParams } from "next/navigation";
 
+//import samplePhoto from "./sample1.png";
 
 
   // シラバスの表示についての設定
@@ -39,24 +40,29 @@ const searchParams = useSearchParams(); // URLのクエリパラメータを取�
 
   return (
      /* ここから下が検索結果の表示部分 */
-      <Box my="md">
-        {query.length >= 1
-          ? <Suspense key={query} fallback={ // queryが変わるたびにSuspenseをリセットする
+    <Flex direction="column" align="center" justify="center" style={{ minHeight: 'calc(100vh - 100px)' }}>
+        {query.length >= 1 ? (
+          <Box my="md" style={{ width: '100%', maxWidth: '800px' }}>
+          <Suspense key={query} fallback={ // queryが変わるたびにSuspenseをリセットする
             // Suspenseは、非同期処理の完了を待つためのコンポーネント
             // ローディング中に表示するコンポーネント
           <Center>
             <Loader />
           </Center>
         } >
-        <SearchResultList query={query} /> 
-          </Suspense>
-          // queryが空のときに表示するコンポーネント
-          : <div>近大シラバスへようこそ!!!
-            <br /> 
-            上の検索バーで授業名で検索してみよう！(Enterを押してね...)
-            <br />
-          </div>
-        }
+          <SearchResultList query={query} /> 
+        </Suspense>
       </Box>
+        // queryが空のときに表示するコンポーネント
+      )  : (
+          <Box my="xl" style={{ textAlign: 'center' }}>
+            <div>近大シラバスへようこそ!!!
+              <br /> 
+              上の検索バーで授業名で検索してみよう！(Enterを押してね...)
+              <br />
+            </div>
+          </Box>
+          )};
+      </Flex>
     );
   };
