@@ -11,6 +11,9 @@ import SearchBar from "../page2/SearchBar";
 import { Flex, TextInput, ActionIcon } from '@mantine/core';
 import { MantineProvider } from '@mantine/core';
 
+import Image from "next/image";
+import icon from "../page2/mon.jpg";
+
 
 //　ArtPageコンポーネントが受け取るprops（引数）の型を定義するはず(意味なしだから削除)
 // つまり、searchParamsの中にqという名前のパラメータが入っている可能性があると思うから置いた
@@ -122,8 +125,31 @@ export default function ArtPage() {
     : grades; //queryが空の場合は全ての授業を表示
 
   return (
+
+    <div style={{ position: "relative", minHeight: "100vh", overflow: "hidden" }}>
+      {/* 背景画像 */}
+      <div style={{
+        position: "fixed",
+        top: 0,
+        right: 0,
+        width: "100vw",
+        height: "100vh",
+        zIndex: -1,
+      }}>
+        <Image
+          src={icon}
+          alt="背景画像"
+          fill
+          style={{ objectFit: "cover" }}
+          quality={100}
+          sizes="100vw"
+        />
+      </div>
+
+
     <Layout>
-    <div style={{ padding: "2rem" ,...{ backgroundColor: 'White', minHeight: '100vh' }}}>
+      
+    <div style={{ padding: "2rem" }}>
         <h3>近大シラバス</h3>
         <SearchBar />
 
@@ -153,5 +179,7 @@ export default function ArtPage() {
       {results.length === 0 && <div>該当する科目がありません。</div>}
     </div>
     </Layout>
+
+    </div>
   );
 }

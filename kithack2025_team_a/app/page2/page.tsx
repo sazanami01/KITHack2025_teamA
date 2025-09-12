@@ -3,7 +3,7 @@
 
 import * as React from 'react';
 
-import icon from "./sample3.png";
+import icon from "./mon.jpg";
 import Image from "next/image";
 
 import { 
@@ -45,7 +45,32 @@ const searchParams = useSearchParams(); // URLのクエリパラメータを取�
 
   return (
      /* ここから下が検索結果の表示部分 */
+
+    <div style={{ position: "relative", minHeight: "100vh", overflow: "hidden" }}>
+      {/* 背景画像 */}
+      <div style={{
+        position: "fixed",
+        top: 0,
+        right: 0,
+        width: "100vw",
+        height: "100vh",
+        zIndex: -1,
+      }}>
+        <Image
+          src={icon}
+          alt="背景画像"
+          fill
+          style={{ objectFit: "cover" }}
+          quality={100}
+          sizes="100vw"
+        />
+      </div>
+
+
     <Flex direction="column" align="center" justify="center" style={{ minHeight: 'calc(100vh - 100px)' }}>
+
+      
+
         {query.length >= 1 ? (
           <Box my="md" style={{ width: '100%', maxWidth: '800px' }}>
           <Suspense key={query} fallback={ // queryが変わるたびにSuspenseをリセットする
@@ -66,20 +91,22 @@ const searchParams = useSearchParams(); // URLのクエリパラメータを取�
               上の検索バーで授業名で検索してみよう！(Enterを押してね...)
               <br />
 
-            <div style={{ 
+              <div style={{ 
                 display: 'flex',          // 全体をフレックスコンテナに 
                 flexDirection: 'column',  // 縦方向に配置
                 alignItems: 'center',     // 横方向中央揃え
                 paddingTop: '2rem'        // 上部に余白
-              }}><Image src={icon} alt="icon" width={1000} height={1000}/>
+            }}>
+              </div>      
+
             </div>
-
-
-
-              
-            </div>
+            
+          
           </Box>
           )}
+        
       </Flex>
+
+      </div>
     );
   };

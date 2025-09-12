@@ -1,6 +1,6 @@
 .root {
 
-  $paddings: 15px;
+  $paddings: 20px;
   @mixin borderStyle() {
 
     display: block;
@@ -26,9 +26,10 @@
 
     position: -webkit-sticky; /* Safari対応 */
     position: sticky;
+    position: "fixed";
     top: 0;
-    height: 100vh;
-    background-color: #362eab;
+    height: 130vh;
+    background-color: #2e2eab;
 
     padding-left: $paddings;
     padding-right: $paddings;
@@ -151,7 +152,7 @@
 
   .mainContent {
 
-    background: #5d5acb;
+    //background: #5d5acb;
     width: 100%;
   }
 }

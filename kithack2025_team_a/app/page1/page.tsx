@@ -11,6 +11,9 @@ import { EventSourceInput } from '@fullcalendar/core/index.js'
 import '../globals.css'
 import { Layout } from "../styles/Layout";
 
+import Image from "next/image";
+import icon from "../page2/mon.jpg";
+
 interface Event {
   title: string;
   start: Date | string;
@@ -155,6 +158,30 @@ export default function TimetableWithMemo() {
   }
 
   return (
+
+    <div style={{ position: "relative", minHeight: "100vh", overflow: "hidden" }}>
+      {/* 背景画像 */}
+      <div style={{
+        position: "fixed",
+        top: 0,
+        right: 0,
+        width: "100vw",
+        height: "100vh",
+        zIndex: -1,
+      }}>
+        <Image
+          src={icon}
+          alt="背景画像"
+          fill
+          style={{ objectFit: "cover" }}
+          quality={100}
+          sizes="100vw"
+        />
+      </div>
+
+
+
+
     <Layout>
       <nav className="flex justify-between mb-12 border-b border-violet-100 p-4">
         <h1 className="font-bold text-2xl text-gray-700">時間割表</h1>
@@ -358,5 +385,7 @@ export default function TimetableWithMemo() {
         </Transition.Root>
       </main >
     </Layout>
+
+    </div>
   )
 }

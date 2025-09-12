@@ -13,6 +13,8 @@ import styles from "./layout.module.css"
 import './global.css';
 
 import { Layout } from "../styles/Layout";
+import icon from "./sample3.png";
+import Image from "next/image";
 
 interface PageProps {
     children: ReactNode 
@@ -21,7 +23,7 @@ const SaearchLayout = ({ children }: PageProps) => {
     // const segment = useSelectedLayoutSegment() as "art" | "user"
     return (
         <Layout>
-        
+        {/*<div style={{backgroundColor: 'White', minHeight: '100vh' }}>*/}
         
         <MantineProvider>
             <div style={{ 
@@ -36,10 +38,12 @@ const SaearchLayout = ({ children }: PageProps) => {
                     近大シラバス
                 </Title>
             <SearchBar />
-            
             </div>
             {children} {/* 各ページの内容がここに入る*/}
+                {/*<Image src={icon} alt ="aaa" layout="fill" objectFit="cover" className="absolute top-0 left-0 z-[0]"/>*/}
         </MantineProvider>
+        
+        {/*</div>*/}
         </Layout>
     )
 }

@@ -5,9 +5,33 @@ import { Layout } from "./styles/Layout";
 
 import styles from './topPage.module.css';
 
+import Image from "next/image";
+import icon from "./page2/mon.jpg";
+
 
 export default function Home() {
   return (
+
+    <div style={{ position: "relative", minHeight: "100vh", overflow: "hidden" }}>
+      {/* 背景画像 */}
+      <div style={{
+        position: "fixed",
+        top: 0,
+        right: 0,
+        width: "100vw",
+        height: "100vh",
+        zIndex: -1,
+      }}>
+        <Image
+          src={icon}
+          alt="背景画像"
+          fill
+          style={{ objectFit: "cover" }}
+          quality={100}
+          sizes="100vw"
+        />
+      </div>
+
     <Layout>
       <div>
 
@@ -34,5 +58,7 @@ export default function Home() {
 
   </div>
     </Layout>
+
+    </div>
   )
 }
