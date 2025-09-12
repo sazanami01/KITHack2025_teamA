@@ -2,6 +2,10 @@
 "use client";
 
 import * as React from 'react';
+
+import icon from "./sample3.png";
+import Image from "next/image";
+
 import { 
   Fragment,
   useEffect,
@@ -20,6 +24,7 @@ import { SearchResultList } from './SearchResultList';
 //import { Loader } from './Loader';
 import { Box, Center, Loader, Text, Title, Flex } from '@mantine/core'
 import { useSearchParams } from "next/navigation";
+import { imageConfigDefault } from 'next/dist/shared/lib/image-config';
 
 //import samplePhoto from "./sample1.png";
 
@@ -60,9 +65,21 @@ const searchParams = useSearchParams(); // URLのクエリパラメータを取�
               <br /> 
               上の検索バーで授業名で検索してみよう！(Enterを押してね...)
               <br />
+
+            <div style={{ 
+                display: 'flex',          // 全体をフレックスコンテナに 
+                flexDirection: 'column',  // 縦方向に配置
+                alignItems: 'center',     // 横方向中央揃え
+                paddingTop: '2rem'        // 上部に余白
+              }}><Image src={icon} alt="icon" width={1000} height={1000}/>
+            </div>
+
+
+
+              
             </div>
           </Box>
-          )};
+          )}
       </Flex>
     );
   };

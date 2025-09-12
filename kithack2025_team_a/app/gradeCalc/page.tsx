@@ -123,8 +123,8 @@ export default function ArtPage() {
 
   return (
     <Layout>
-    <div style={{ padding: "2rem" }}>
-      
+    <div style={{ padding: "2rem" ,...{ backgroundColor: 'White', minHeight: '100vh' }}}>
+        <h3>近大シラバス</h3>
         <SearchBar />
 
       <h2>後期授業(シラバス簡易版(再履修入力してません))</h2>
