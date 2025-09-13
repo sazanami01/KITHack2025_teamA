@@ -42,7 +42,7 @@ export default function page3() {
           <Image src={image2} alt="icon" width={500} height={500}/>
         </div>
       </div>
-    <h1 className="font-bold text-2xl text-gray-700">休日のの時刻表</h1>
+    <h1 className="font-bold text-2xl text-gray-700">休日の時刻表</h1>
 
     <div style={{ display: "flex", }}>
         <Image src={image3} alt="icon" width={500} height={500}/>
