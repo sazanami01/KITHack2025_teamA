@@ -1,0 +1,15 @@
+/* app/global.css */
+
+/* ライトモードのデフォルト設定 */
+:root {
+  --main-color: #6e5ade; /* メインカラー */
+  --sub-color: #ebabab; /* サブカラー */
+  --bg-gradation: linear-gradient( /* 背景のグラデーション */
+      135deg,/* 角度 */
+      var(--main-color) 0%, /* 開始色 */
+      var(--sub-color) 100% /* 終了色 */
+    ) fixed; /* 固定 */
+}
+body {
+  background: var(--bg-gradation); /* 背景にグラデーションを適用 */
+}
