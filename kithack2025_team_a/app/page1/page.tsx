@@ -12,7 +12,7 @@ import '../globals.css'
 import { Layout } from "../styles/Layout";
 
 import Image from "next/image";
-import icon from "../page2/mon.jpg";
+import icon from "./mon.jpg";
 
 interface Event {
   title: string;

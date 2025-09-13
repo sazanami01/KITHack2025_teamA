@@ -40,20 +40,26 @@ export default function Home() {
 
   <div className={styles.block}>
   <h2 className={styles.bigsentence}>カレンダー</h2>
-  <p className={styles.nomalsentence}>ページ１では、カレンダーに自分の予定を入れることができます。</p>
+  <p className={styles.nomalsentence}>カレンダーに自分の予定を入れることができます。</p>
   <p className={styles.nomalsentence}>課題の締め切りやテストの日程など、大切な予定を記録しましょう。</p>
   </div>
 
   <div className={styles.block}>
   <h2 className={styles.bigsentence}>シラバス検索</h2>
-  <p className={styles.nomalsentence}>ページ２では、自分が気になる授業のシラバスを確認できます。</p>
+  <p className={styles.nomalsentence}>自分が気になる授業のシラバスを確認できます。</p>
   <p className={styles.nomalsentence}>成績の割合と開講されている時間、必要最低限の情報があなたを待っています。</p>
   </div>
 
   <div className={styles.block}>
   <h2 className={styles.bigsentence}>時間割</h2>
-  <p className={styles.nomalsentence}>ページ３では、時間割を作成できます。</p>
+  <p className={styles.nomalsentence}>時間割を作成できます。</p>
   <p className={styles.nomalsentence}>通常授業に加え、オンデマンド授業も追加することができます。あなただけの時間割を作りましょう。</p>
+  </div>
+
+  <div className={styles.block}>
+  <h2 className={styles.bigsentence}>時刻表</h2>
+  <p className={styles.nomalsentence}>近鉄長瀬駅の時刻表を閲覧できます。</p>
+  <p className={styles.nomalsentence}>時刻表をきちんと確認して終電を逃さないようにしましょう。</p>
   </div>
 
   </div>

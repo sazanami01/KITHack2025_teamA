@@ -24,18 +24,24 @@ const navigations: Navigation[] = [
     icon: <HomeIcon className={styles.icon}/>
   },
   {
-    pageName: "ページ2",
+    pageName: "カレンダー",
     path: "/page1",
     icon: <HomeIcon className={styles.icon}/>
   },
   {
-    pageName: "ページ3",
+    pageName: "シラバス",
     path: "/page2",
     icon: <HomeIcon className={styles.icon}/>
   },
   {
-    pageName: "ページ4",
+    pageName: "時間割",
     path: "/page3",
+    icon: <HomeIcon className={styles.icon}/>
+  },
+
+  {
+    pageName: "時刻表",
+    path: "/page4",
     icon: <HomeIcon className={styles.icon}/>
   },
 

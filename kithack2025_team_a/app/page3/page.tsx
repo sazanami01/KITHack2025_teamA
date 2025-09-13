@@ -5,6 +5,9 @@ import styles from './Omiso.module.css';
 
 import { Layout } from "../styles/Layout";
 
+import Image from "next/image";
+import icon from "../page1/mon.jpg";
+
 export default function Timetable() {
 
   // 曜日
@@ -152,7 +155,11 @@ const saveOndemandClass = () => {
   // 画面の表示部分
   return (
 
+    <div style={{ backgroundColor: 'White', minHeight: '100vh' }}>
+
     <Layout>
+
+
     <div className='timetable-container'>
       <h1 className="font-bold text-2xl text-gray-700">時間割表</h1>
 
@@ -318,6 +325,10 @@ const saveOndemandClass = () => {
       
     </div>
 
+      
+
     </Layout>
+    
+    </div>
   );
 }
